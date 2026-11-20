@@ -1,0 +1,11 @@
+# Quartus output
+db/
+incremental_db/
+output_files/
+greybox_tmp/
+*.qws
+*.bak
+build_id.v
+c5_pin_model_dump.txt
+PLLJ_PLLSPE_INFO.txt
+.DS_Store

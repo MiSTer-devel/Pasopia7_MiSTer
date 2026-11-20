@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+"""Write rtl/rampac_blank.hex: a formatted, empty 32 KiB RAM PAC 2, as CSCP's RAMPAC2::open_file() makes one when
+there is no file (src/vm/pasopia7/rampac2.cpp)."""
+d = bytearray(0x8000)
+d[0:16] = bytes([0xaa, 0x1f, 0x04, 0x00, 0x04, 0x80, 0x00, 0x01, 0x04, 0x04, 0x01, 0x03, 0x08, 0x00, 0x00, 0x00])
+d[0x20:0x220] = b'\xff' * 0x200
+d[0x300:0x304] = b'\xfe' * 4
+d[0x304:0x400] = b'\xff' * 0xfc
+open('rtl/rampac_blank.hex', 'w').write('\n'.join('%02x' % b for b in d) + '\n')
